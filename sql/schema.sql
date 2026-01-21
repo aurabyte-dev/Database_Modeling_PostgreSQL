@@ -1,30 +1,30 @@
 CREATE TABLE "StudentInfo" (
   "student_info_id" INTEGER PRIMARY KEY,
   "student_id" INTEGER NOT NULL,
-  "social_security_nr" "VARCHAR(13)",
-  "email" "VARCHAR(100)"
+  "social_security_nr" VARCHAR(13),
+  "email" VARCHAR(100)
 );
 
 CREATE TABLE "Student" (
   "student_id" INTEGER PRIMARY KEY,
   "class_id" INTEGER NOT NULL,
-  "first_name" "VARCHAR(50)" NOT NULL,
-  "last_name" "VARCHAR(50)" NOT NULL
+  "first_name" VARCHAR(50) NOT NULL,
+  "last_name" VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE "Class" (
   "class_id" INTEGER PRIMARY KEY,
   "school_id" INTEGER NOT NULL,
   "program_id" INTEGER NOT NULL,
-  "name" "VARCHAR(50)" NOT NULL,
+  "name" VARCHAR(50) NOT NULL,
   "start_year" INTEGER NOT NULL,
   "cohort" SMALLINT NOT NULL
 );
 
 CREATE TABLE "School" (
   "school_id" INTEGER PRIMARY KEY,
-  "name" "VARCHAR(50)" NOT NULL,
-  "address" "VARCHAR(50)" NOT NULL
+  "name" VARCHAR(50) NOT NULL,
+  "address" VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE "ProgramSchool" (
@@ -36,8 +36,8 @@ CREATE TABLE "ProgramSchool" (
 CREATE TABLE "Program" (
   "program_id" INTEGER PRIMARY KEY,
   "edulead_id" INTEGER NOT NULL,
-  "name" "VARCHAR(50)" NOT NULL,
-  "code" "VARCHAR(10)" NOT NULL
+  "name" VARCHAR(50) NOT NULL,
+  "code" VARCHAR(10) NOT NULL
 );
 
 CREATE TABLE "CourseProgram" (
@@ -49,10 +49,10 @@ CREATE TABLE "CourseProgram" (
 CREATE TABLE "Course" (
   "course_id" INTEGER PRIMARY KEY,
   "teacher_id" INTEGER NOT NULL,
-  "name" "VARCHAR(50)" NOT NULL,
-  "code" "VARCHAR(10)" NOT NULL,
+  "name" VARCHAR(50) NOT NULL,
+  "code" VARCHAR(10) NOT NULL,
   "points" INTEGER NOT NULL,
-  "description" "VARCHAR(500)" NOT NULL
+  "description" VARCHAR(500) NOT NULL
 );
 
 CREATE TABLE "CourseStudent" (
@@ -70,17 +70,17 @@ CREATE TABLE "EduLead" (
 
 CREATE TABLE "Teacher" (
   "teacher_id" INTEGER PRIMARY KEY,
-  "first_name" "VARCHAR(50)" NOT NULL,
-  "last_name" "VARCHAR(50)" NOT NULL,
-  "contract_type" "VARCHAR(50)" NOT NULL,
+  "first_name" VARCHAR(50) NOT NULL,
+  "last_name" VARCHAR(50) NOT NULL,
+  "contract_type" VARCHAR(50) NOT NULL CHECK (contract_type IN ('consultant', 'permanent_hire')),
   "hire_date" DATE NOT NULL
 );
 
 CREATE TABLE "TeacherInfo" (
   "teacher_info_id" INTEGER PRIMARY KEY,
   "teacher_id" INTEGER NOT NULL,
-  "social_security_nr" "VARCHAR(13)",
-  "email" "VARCHAR(100)"
+  "social_security_nr" VARCHAR(13),
+  "email" VARCHAR(100)
 );
 
 CREATE TABLE "Consultant" (
@@ -98,9 +98,9 @@ CREATE TABLE "PermanentHire" (
 
 CREATE TABLE "Company" (
   "company_id" INTEGER PRIMARY KEY,
-  "name" "VARCHAR(50)" NOT NULL,
-  "org_nr" "VARCHAR(11)" NOT NULL,
-  "address" "VARCHAR(200)" NOT NULL,
+  "name" VARCHAR(50) NOT NULL,
+  "org_nr" VARCHAR(11) NOT NULL,
+  "address" VARCHAR(200) NOT NULL,
   "f_tax" BOOLEAN
 );
 
