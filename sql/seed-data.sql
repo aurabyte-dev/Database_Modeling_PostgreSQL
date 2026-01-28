@@ -2,17 +2,17 @@
 -- SEED DATA FOR MYH DATABASE
 -- ============================================
 
--- ============================================
+
 -- 1. SCHOOLS (2)
--- ============================================
+
 INSERT INTO "School" ("school_id", "name", "address") 
 VALUES
 (1, 'Stockholm', 'Kungsgatan 12, 111 43 Stockholm'),
 (2, 'Göteborg', 'Avenyn 45, 411 36 Göteborg');
 
--- ============================================
+
 -- 2. COMPANIES (6)
--- ============================================
+
 INSERT INTO "Company" ("company_id", "name", "org_nr", "address", "f_tax") 
 VALUES
 (1, 'TechConsult AB', '556123-4567', 'Storgatan 1, Stockholm', TRUE),
@@ -22,9 +22,9 @@ VALUES
 (5, 'SecureNet Advisory', '556567-8901', 'Drottninggatan 15, Stockholm', TRUE),
 (6, 'DataMinds Consulting', '556678-9012', 'Avenyn 30, Göteborg', TRUE);
 
--- ============================================
+
 -- 3. TEACHERS (7)
--- ============================================
+
 INSERT INTO "Teacher" ("teacher_id", "first_name", "last_name", "contract_type", "hire_date") 
 VALUES
 (1, 'Erik', 'Andersson', 'permanent_hire', '2022-01-15'),
@@ -35,9 +35,9 @@ VALUES
 (6, 'Linda', 'Fransson', 'consultant', '2024-02-01'),
 (7, 'Magnus', 'Gustafsson', 'consultant', '2023-11-20');
 
--- ============================================
+
 -- 4. TEACHER INFO (7)
--- ============================================
+
 INSERT INTO "TeacherInfo" ("teacher_info_id", "teacher_id", "social_security_nr", "email") 
 VALUES
 (1, 1, '198501151234', 'erik.andersson@yrkesco.se'),
@@ -48,16 +48,16 @@ VALUES
 (6, 6, '199109051234', 'linda.fransson@securenet.se'),
 (7, 7, '198612151234', 'magnus.gustafsson@dataminds.se');
 
--- ============================================
+
 -- 5. PERMANENT HIRE (1)
--- ============================================
+
 INSERT INTO "PermanentHire" ("permanent_hire_id", "teacher_id", "monthly_salary") 
 VALUES
 (1, 1, 45000.00);
 
--- ============================================
+
 -- 6. CONSULTANTS (6)
--- ============================================
+
 INSERT INTO "Consultant" ("consultant_id", "teacher_id", "company_id", "hourly_rate") 
 VALUES
 (1, 2, 1, 850.00),
@@ -67,9 +67,9 @@ VALUES
 (5, 6, 5, 890.00),
 (6, 7, 6, 910.00);
 
--- ============================================
+
 -- 7. EDUCATIONAL LEADERS (4)
--- ============================================
+
 INSERT INTO "EduLead" ("edulead_id", "teacher_id", "start_date") 
 VALUES
 (1, 1, '2022-01-15'),
@@ -77,9 +77,9 @@ VALUES
 (3, 3, '2023-09-01'),
 (4, 4, '2024-01-10');
 
--- ============================================
+
 -- 8. PROGRAMS (4)
--- ============================================
+
 INSERT INTO "Program" ("program_id", "edulead_id", "name", "code") 
 VALUES
 (1, 1, 'Data Engineering', 'DE'),
@@ -87,10 +87,10 @@ VALUES
 (3, 3, 'Cybersecurity', 'CS'),
 (4, 4, 'Cloud Infrastructure', 'CI');
 
--- ============================================
+
 -- 9. PROGRAM-SCHOOL RELATIONSHIPS (8)
 -- All programs offered at both schools
--- ============================================
+
 INSERT INTO "ProgramSchool" ("program_school_id", "school_id", "program_id") 
 VALUES
 (1, 1, 1), -- DE at Stockholm
@@ -102,10 +102,10 @@ VALUES
 (7, 1, 4), -- CI at Stockholm
 (8, 2, 4); -- CI at Göteborg
 
--- ============================================
+
 -- 10. COURSES (25)
 -- 5 per program (20) + 5 standalone (25 total)
--- ============================================
+
 
 -- Data Engineering Courses (5)
 INSERT INTO "Course" ("course_id", "teacher_id", "name", "code", "points", "description") 
@@ -152,11 +152,11 @@ VALUES
 (24, 4, 'English for IT', 'GEN104', 15, 'Technical English'),
 (25, 5, 'Entrepreneurship', 'GEN105', 15, 'Starting a tech business');
 
--- ============================================
+
 -- 11. COURSE-PROGRAM RELATIONSHIPS (20)
 -- Link 5 courses to each program
 -- Note: Standalone courses (21-25) are NOT linked
--- ============================================
+
 
 -- Data Engineering Program Courses
 INSERT INTO "CourseProgram" ("course_program_id", "course_id", "program_id") 
@@ -178,10 +178,10 @@ INSERT INTO "CourseProgram" ("course_program_id", "course_id", "program_id")
 VALUES
 (16, 16, 4), (17, 17, 4), (18, 18, 4), (19, 19, 4), (20, 20, 4);
 
--- ============================================
+
 -- 12. CLASSES (12)
 -- 3 classes per program (cohorts: 1, 2, 3)
--- ============================================
+
 
 -- Data Engineering Classes
 INSERT INTO "Class" ("class_id", "school_id", "program_id", "name", "start_year", "cohort") VALUES
@@ -210,10 +210,10 @@ VALUES
 (11, 2, 4, 'CI25', 2025, 2),
 (12, 2, 4, 'CI26', 2026, 3);
 
--- ============================================
+
 -- 13. STUDENTS (120)
 -- 10 students per class × 12 classes = 120 students
--- ============================================
+
 
 -- Class 1: DE24-1 (10 students)
 INSERT INTO "Student" ("student_id", "class_id", "first_name", "last_name") 
@@ -383,10 +383,10 @@ VALUES
 (119, 12, 'Annika', 'Karlsson'),
 (120, 12, 'Magnus', 'Larsson');
 
--- ============================================
+
 -- 14. STUDENT INFO (120)
 -- One for each student
--- ============================================
+
 
 -- Class 1: DE24-1
 INSERT INTO "StudentInfo" ("student_info_id", "student_id", "social_security_nr", "email") 
@@ -555,10 +555,10 @@ VALUES
 (119, 119, '200308101234', 'annika.karlsson@student.yrkesco.se'),
 (120, 120, '200312051234', 'magnus.larsson@student.yrkesco.se');
 
--- ============================================
+
 -- 15. COURSE-STUDENT RELATIONSHIPS
 -- Some students registered for standalone courses
--- ============================================
+
 INSERT INTO "CourseStudent" ("course_student_id", "student_id", "course_id", "reg_date") 
 VALUES
 (1, 1, 21, '2024-08-15'),  -- Emma takes Project Management
@@ -572,17 +572,4 @@ VALUES
 (9, 11, 24, '2024-08-18'), -- Ella takes English for IT
 (10, 31, 25, '2024-09-12'); -- Alma takes Entrepreneurship
 
--- ============================================
--- END OF SEED DATA
--- ============================================
--- Summary:
--- - 2 Schools
--- - 6 Companies
--- - 7 Teachers (1 permanent, 6 consultants)
--- - 4 Educational Leaders
--- - 4 Programs (DE, SD, CS, CI)
--- - 12 Classes (3 per program)
--- - 25 Courses (5 per program + 5 standalone)
--- - 120 Students (10 per class)
--- - 10 Standalone course registrations
--- ============================================
+
