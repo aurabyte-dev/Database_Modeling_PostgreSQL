@@ -95,5 +95,10 @@ This is the high-level conceptual model for YrkesCo's educational platform, show
 
 
 ## Conceptual ERD
-![Conceptual ERD with Relationship Labels](../models/conceptual-erd-RS.png)
 ![Conceptual ERD without Relationship Labels](../models/conceptual-erd.png)
+
+### With Relationship Labels
+![Conceptual ERD with Relationship Labels](../models/conceptual-erd-RS.png)
+
+
+
