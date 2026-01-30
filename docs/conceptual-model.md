@@ -3,6 +3,9 @@
 ## Overview
 This is the high-level conceptual model for YrkesCo's educational platform, showing the main entities and their relationships without technical implementation details.
 
+![Conceptual ERD without Relationship Labels](../models/conceptual-erd.png)
+
+
 ## Entities
 - Student
 - Student Info

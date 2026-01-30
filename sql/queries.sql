@@ -3,7 +3,7 @@
 -- PART 1: INSERT VALIDATION (test database constrains)
 -- ==============================================================
 
--- ============================================
+
 -- TEST 1: STUDENT TABLE
 -- Testing: PRIMARY KEY, FOREIGN KEY, NOT NULL
 -- ============================================
@@ -36,7 +36,7 @@ INSERT INTO "Student" ("student_id", "class_id", "first_name", "last_name") VALU
 (125, 1, NULL, 'Dalqvist');
 
 
--- ============================================
+
 -- TEST 2: TEACHER TABLE
 -- Testing: PRIMARY KEY, CHECK constraint, NOT NULL
 -- ============================================
@@ -70,7 +70,7 @@ INSERT INTO "Teacher" ("teacher_id", "first_name", "last_name", "contract_type",
 
 
 
--- ============================================
+
 -- TEST 3: COURSESTUDENT TABLE (bridge Table)
 -- Testing: PRIMARY KEY, FOREIGN KEY (multiple), UNIQUE composite
 -- ============================================
@@ -109,7 +109,7 @@ INSERT INTO "CourseStudent" ("course_student_id", "student_id", "course_id", "re
 -- ============================================
 
 
--- ===================================================
+
 -- QUERY 1: CLASS INFORMATION (JOINs across 6 tables)
 -- ===================================================
 -- Question: For a specific class (DE24-1), show the following:
@@ -166,7 +166,7 @@ GROUP BY
 
 
 
--- =====================================================
+
 -- QUERY 2: CONSULTANT TEACHERS (JOINs across 4 tables)
 -- =====================================================
 -- Question: Show the following for all consultant teachers:
